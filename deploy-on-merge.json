@@ -1,0 +1,17 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "For repos where a merge to the default branch deploys to production: only security fixes are merged automatically, everything else waits for a human to merge (and so deploy) it",
+  "packageRules": [
+    {
+      "description": "No automerge for regular updates: merging deploys, so a human picks the moment",
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest", "pinDigest", "major", "lockFileMaintenance"],
+      "automerge": false
+    }
+  ],
+  "lockFileMaintenance": {
+    "automerge": false
+  },
+  "vulnerabilityAlerts": {
+    "automerge": true
+  }
+}

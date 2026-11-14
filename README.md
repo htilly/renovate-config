@@ -22,3 +22,16 @@ Use it from a repo's `renovate.json`:
 - A **Dependency Dashboard** issue in each repo lists everything that's pending.
 
 Override anything per repo in that repo's `renovate.json`.
+
+## Repos that deploy on merge
+
+If merging to the default branch deploys to production, also extend `deploy-on-merge`:
+
+```json
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["github>htilly/renovate-config", "github>htilly/renovate-config:deploy-on-merge"]
+}
+```
+
+Security fixes are still merged (and so deployed) automatically once all checks pass. Every other update is a PR that you merge when you want it deployed.
